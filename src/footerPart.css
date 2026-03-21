@@ -1,0 +1,13 @@
+.footerPart{
+    text-align: left;
+    background-color: #042743;
+    color: white;
+    margin-top: 120px;
+    padding: 7px;
+    position: relative;
+}
+
+.bottom-footer{
+    margin-top: 7px;
+    text-align: center;
+}

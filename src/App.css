@@ -1,0 +1,578 @@
+/* Home page Styles */
+
+/* Main Container */
+.home-main-container {
+  background-color: #f5f5f5;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding-left: 80px;
+  padding-right: 80px;
+}
+
+/* Left Container */
+.left-container {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  border: 20px solid white;
+  margin: 10px;
+}
+
+/* Principal Container */
+.principal-container {
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  padding: 20px;
+  margin: 10px;
+}
+
+/* Circular Image Style */
+.image-container {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+/* college picture */
+.college-picture {
+  width: 65%;
+  height: 400px;
+  overflow: hidden;
+}
+
+/* Large Text Container */
+.large-text-container {
+  background-color: white;
+  margin: 20px;
+  border: 4px solid hsl(240, 70%, 35%);
+  padding: 35px;
+  font-family: times new roman;
+}
+
+/* Links List */
+.links-list {
+  padding: 5px 10px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  text-align: left;
+}
+
+/* Home page Styles end */
+
+/* Header styles */
+
+.main-container{
+  /* background-color: rgb(232, 215, 250); */
+  background-color: #042743;
+  color: white;
+}
+
+.subdivision{
+  /* margin: 20px; */
+  padding: 10px;
+  text-align: center;
+}
+
+.subdivision-1{
+  /* margin: 20px; */
+  padding: 10px;
+  text-align: center;
+}
+
+.subdivision-2{
+  margin: 10px;
+  /* padding: 5px; */ 
+  text-align: left;
+}
+
+.college-logo{
+  width: 280px; 
+  height: 200px;
+}
+
+/* Header Styles end */
+
+/* Branch Styles */
+
+.branch-main-container {
+  background-color: #f5f5f5;
+  font-family: Arial, sans-serif;
+  text-align: left;
+  padding-left: 80px;
+  padding-right: 80px;
+}
+
+.branch-left-container {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-right: 40px;
+  padding: 20px;
+}
+
+.branch-right-container {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  padding: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: auto;
+  max-height: 800px;
+  overflow-y: auto;
+}
+
+.hod-image-style {
+  width: 150px; /* Adjust the size of the circular image */
+  height: 150px;
+  border-radius: 50%; /* Creates a circular clipping mask */
+  overflow: hidden; /* Ensures the image stays within the circular mask */
+}
+
+.hod-container {
+  text-align: center;
+  padding: 10px;
+}
+
+/* Branch Styles end */
+
+.newTagStyle {
+    display: inline;
+    border: 1ps solid black;
+    animation-name:changecolor;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    width: 50px;
+    text-align: center;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 10px;
+}
+@keyframes changecolor {
+    0%{
+        background-color: red;
+    }
+    25%{
+        background-color: blue;
+    }
+    50%{
+        background-color: green;
+    }
+    75%{
+        background-color: rgb(255, 242, 0);
+    }
+    100%{
+        background-color: aqua;
+    }
+}
+
+.textContainer {
+    padding : 35px;
+    margin: 20px;
+    color: hsl(240, 70%, 35%);
+    background-color: white;
+    border-radius: "5px";
+    position:relative;
+    border-radius: 5px;
+
+    marquee {
+      animation: marquee 10s linear infinite;
+    }
+  
+    /* Pause the animation on hover */
+    &:hover{
+      scale: 1.08;
+      transition : ease;
+      transition-duration : 0.8s;
+    }
+
+}
+
+.last-container-homepage {
+  margin: 20px;
+  justify-content: space-between;
+}
+
+.vision-mission {
+  background-color: white;
+  border: 4px solid hsl(240, 70%, 35%);
+  padding: 35px;
+  font-family: times new roman;
+  margin-bottom: 10px;
+}
+
+.motivation-video {
+  background-color: white;
+  border: 4px solid hsl(240, 70%, 35%);
+  padding: 35px;
+  margin-bottom: 10px;
+}
+
+.videoStyle {
+  width: 90%;
+  height: 90%;
+}
+
+/* Placements page styles */
+
+.placements-main-container {
+  background-color: #f5f5f5;
+  font-family: Arial, sans-serif;
+  text-align: left;
+  padding-left: 80px;
+  padding-right: 80px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.placement-menus {
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Times New Roman', Times, serif;
+  padding: 15px;
+  margin-left: 20px;
+  height: 370px;
+}
+
+ul li.menuItem {
+  cursor: pointer;
+  color:hsl(240, 70%, 30%)
+}
+
+.diplomaPrograms-container {
+  background-color: white;
+  width: 100%;
+  padding: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.placementofficer-container {
+  background-color: white;
+  padding: 40px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: hsl(0, 0%, 30%);
+}
+
+.placementofficer-image {
+  width: 150px; /* Adjust the size of the circular image */
+  height: 150px;
+  border-radius: 50%; /* Creates a circular clipping mask */
+  overflow: hidden; /* Ensures the image stays within the circular mask */
+}
+
+.major-recruiters-container {
+  background-color: white;
+  padding: 40px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: hsl(0, 0%, 30%);
+}
+
+.recruiters-guide-container {
+  background-color: white;
+  padding: 40px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: hsl(0, 0%, 30%);
+}
+
+.students-guide-container {
+  background-color: white;
+  padding: 40px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: hsl(0, 0%, 30%);
+}
+
+/* Placements style end */
+
+/* dpoloma programs */
+
+
+
+/* diploma programs end */
+
+/* Contact us styles */
+ 
+.contactus-main-container{
+  background-color: #f5f5f5;
+  font-family: Arial, sans-serif;
+  text-align: left;
+  padding-left: 80px;
+  padding-right: 80px;
+}
+
+.contact-info-container {
+  background-color: white;
+  padding: 40px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.contactus-table-container {
+  background-color: white;
+  padding: 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contactus-table, .contactus-table th, .contactus-table td {
+  border: 1px solid #ddd; 
+  padding: 8px; 
+}
+
+.contactus-table thead {
+  background-color: hsl(205, 85%, 35%);
+  color: white;
+}
+
+.contactus-table {
+  width: 100%;
+}
+
+.contactus-table tbody tr :nth-child(odd) {
+  background-color: whitesmoke;
+}
+
+.contactus-table tbody tr :hover {
+  background-color: whitesmoke;
+}
+
+/* Contact us styles end */
+
+/* faculties styles */
+
+.faculty-container {
+  background-color: #f5f5f5;
+  font-family: Arial, sans-serif;
+  text-align: left;
+  padding: 20px 80px 20px 80px;
+}
+
+.faculties-table-container {
+  background-color: white;
+  padding: 40px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: hsl(0, 0%, 30%);
+  margin-bottom: 20px;
+}
+
+.faculties-table, .faculties-table th, .faculties-table td {
+  border: 1px solid #ddd; 
+  padding: 8px; 
+}
+
+.faculties-table thead {
+  background-color: hsl(205, 85%, 35%);
+  color: white;
+}
+
+.faculties-table tbody tr :nth-child(odd) {
+  background-color: whitesmoke;
+}
+
+.faculties-table tbody tr :hover {
+  background-color: whitesmoke;
+}
+
+.faculties-table {
+  width: 100%;
+}
+/* faculties styles end */
+
+/* Faculty Management styles */
+
+.faculty-management-container {
+  background-color: white;
+  padding: 40px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: hsl(0, 0%, 30%);
+  margin-bottom: 20px;
+}
+
+.faculty-table, .faculty-table th, .faculty-table td {
+  border: 1px solid #ddd; 
+  padding: 8px; 
+}
+
+.faculty-table thead {
+  background-color: hsl(205, 85%, 35%);
+  color: white;
+}
+
+.faculty-table {
+  width: 100%;
+}
+
+.faculty-table tbody tr :nth-child(odd) {
+  background-color: whitesmoke;
+}
+
+.faculty-table tbody tr :hover {
+  background-color: whitesmoke;
+}
+
+.faculty-button{
+  background-color: #28A745;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  font-size: 13px;
+  height: 25px;
+}
+
+/* Faculty Management styles end */
+
+/* admin dashboard styles */
+
+.admin-main-container {
+  background-color: #f5f5f5;
+  font-family: Arial, sans-serif;
+  text-align: left;
+  padding-left: 55px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+/* admin dashboard styles end */
+
+/* Student Managent styles */
+
+.student-management-container {
+  background-color: white;
+  padding: 40px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: hsl(0, 0%, 30%);
+  margin-bottom: 20px;
+}
+
+body{
+  overflow-x: hidden;
+}
+
+/* Student Managent styles end */
+
+/* View Attendance styles */
+
+.view-attendance {
+  background-color: #f5f5f5;
+  font-family: Arial, sans-serif;
+  text-align: left;
+  padding-left: 80px;
+  padding-right: 80px;
+}
+
+.inner-view-attendance{
+  background-color: white;
+  padding: 40px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  justify-content: space-between;
+  margin: 20px;
+}
+
+/* View Attendance styles end */
+
+/* Take Attendance styles */
+
+.take-attendance{
+  background-color: white;
+  padding: 40px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.attendance-table{
+  text-align: center;
+  border-collapse: separate;
+}
+
+/* Event management styles */
+
+/* .admin-calendar-container{
+  background-color: white;
+  padding: 40px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.admin-calendar{
+  color:hsl(205, 85%, 25%);
+  text-align:center;
+  font-weight: bold;
+}
+
+.event-date {
+  color: #fff;
+  background-color: #007bff;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  text-align: center;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.delete-event-btn {
+  margin-top: 10px;
+  background-color: #28A745;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+} */
+
+/* View Student Styles */
+
+.student-attendance-container{
+  background-color: white;
+  padding: 40px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  justify-content: space-between;
+  margin: 20px;
+}
+
+/* View Attendance styles */
+.view-attendance-table, .view-attendance-table th, .view-attendance-table td {
+  border: 1px solid #ddd; 
+  padding: 8px; 
+  text-align: center;
+}
+
+.view-attendance-table thead {
+  background-color: hsl(205, 85%, 35%);
+  color: white;
+}
+
+.view-attendance-table {
+  width: 50%;
+}
+
+.view-attendance-table tbody tr :hover {
+  background-color: whitesmoke;
+}
+
+/* Take attendance styles */
+.take-attendance-table, .take-attendance-table th, .take-attendance-table td {
+  border: 1px solid #ddd; 
+  padding: 8px; 
+  text-align: center;
+}
+
+.take-attendance-table thead {
+  background-color: hsl(205, 85%, 35%);
+  color: white;
+}
+
+.take-attendance-table {
+  width: 100%;
+  margin: 10px;
+}
+
+.take-attendance-table tbody tr :hover {
+  background-color: whitesmoke;
+}
