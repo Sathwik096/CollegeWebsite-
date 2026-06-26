@@ -46,7 +46,8 @@ const pool = mysql.createPool({
     user: 'root',
     password: 'Sathwik',
     database: 'collegegpt',
-    waitForConnections: true
+    waitForConnections: true,
+    dateStrings: true
 });
 
 pool.getConnection((err,results)=>{
@@ -84,10 +85,14 @@ app.post('/upload', upload.single('file'), async (req, res) => {
 
         console.log("Mapped Excel Data:", excelData);
 
+        // Find the DOB header key dynamically (handles spacing variations)
+        const dobKey = headers.find(h => h.includes('date of birth'));
+        console.log('Detected DOB column key:', dobKey);
+
         // Step 4: Insert into DB
         for (const row of excelData) {
-            console.log("Raw Excel Value:", row["date of birth(yyyy/mm/dd)"], typeof row["date of birth(yyyy/mm/dd)"]);
-            const formattedDate = formatDate(row["date of birth(yyyy/mm/dd)"]);
+            console.log("Raw Excel Value:", row[dobKey], typeof row[dobKey]);
+            const formattedDate = formatExcelDate(row[dobKey]);
             console.log('Formatted Date:', formattedDate);
 
             const query = `
@@ -109,7 +114,7 @@ app.post('/upload', upload.single('file'), async (req, res) => {
                 row["email id"],
             ], (err, result) => {
                 if (err) {
-                    console.log('Raw Excel Date Value:', row["date of birth(yyyy/mm/dd)"], typeof row["date of birth (yyyy/mm/dd)"]);
+                    console.log('Raw Excel Date Value:', row[dobKey], typeof row[dobKey]);
                     console.log('Error adding student:', err);
                 } else {
                     console.log('Added successfully');
@@ -135,18 +140,41 @@ app.post('/upload', upload.single('file'), async (req, res) => {
 });
 
 
-// Convert Excel serial date -> MySQL compatible YYYY-MM-DD
-function formatDate(serial) {
-  // Excel incorrectly treats 1900 as a leap year, so subtract 1
-  const excelEpoch = new Date(Date.UTC(1900, 0, 1)); // Jan 1, 1900
-  const jsDate = new Date(excelEpoch.getTime() + (serial - 2) * 86400000); 
-  // (serial - 2) fixes the leap year bug + zero-based offset
+// Convert Excel date value -> MySQL compatible YYYY-MM-DD
+// Handles: JS Date objects, Excel serial numbers, and date strings
+function formatExcelDate(value) {
+  if (value == null) {
+    console.log('WARNING: DOB value is null/undefined');
+    return null;
+  }
 
-  // Format YYYY-MM-DD for MySQL
-  const year = jsDate.getUTCFullYear();
-  const month = String(jsDate.getUTCMonth() + 1).padStart(2, '0');
-  const day = String(jsDate.getUTCDate()).padStart(2, '0');
-  
+  let jsDate;
+
+  if (value instanceof Date) {
+    // xlsx returned a JS Date object (e.g. 2006-03-07T18:30:00.000Z)
+    jsDate = value;
+  } else if (typeof value === 'number') {
+    // Excel serial number (e.g. 36526)
+    const excelEpoch = new Date(Date.UTC(1900, 0, 1));
+    jsDate = new Date(excelEpoch.getTime() + (value - 2) * 86400000);
+  } else if (typeof value === 'string') {
+    // String like "2006/03/08" or "2006-03-08"
+    jsDate = new Date(value);
+  } else {
+    console.log('WARNING: Unexpected DOB type:', typeof value, value);
+    return null;
+  }
+
+  if (isNaN(jsDate.getTime())) {
+    console.log('WARNING: Could not parse DOB value:', value);
+    return null;
+  }
+
+  // Format YYYY-MM-DD for MySQL (use local time to match Excel's date)
+  const year = jsDate.getFullYear();
+  const month = String(jsDate.getMonth() + 1).padStart(2, '0');
+  const day = String(jsDate.getDate()).padStart(2, '0');
+
   return `${year}-${month}-${day}`;
 }
 
