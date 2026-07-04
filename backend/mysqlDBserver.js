@@ -1,15 +1,15 @@
 const mysql = require('mysql2');
 
+// Works locally AND on Railway via environment variables
 const pool = mysql.createPool({
-    host: 'localhost',
-    user: 'root',
-    password: 'Sathwik',
+    host: process.env.DB_HOST || 'localhost',
+    port: process.env.DB_PORT || 3306,
+    user: process.env.DB_USER || 'root',
+    password: process.env.DB_PASSWORD || 'Sathwik',
+    database: process.env.DB_NAME || 'collegegpt',
     waitForConnections: true
 });
 
-// Define your database and table creation queries
-const createDatabaseQuery = 'CREATE DATABASE IF NOT EXISTS collegegpt';
-const useDatabaseQuery = 'USE collegegpt';
 const createDepartmentTableQuery = `
 CREATE TABLE IF NOT EXISTS department (
     D_id int NOT NULL AUTO_INCREMENT,
@@ -71,46 +71,28 @@ CREATE TABLE IF NOT EXISTS attendance (
     CONSTRAINT attendance_s_id_fk FOREIGN KEY (s_id) REFERENCES student_details (s_id) ON DELETE CASCADE
 )`;
 
-// Execute the queries sequentially
-pool.query(createDatabaseQuery, (err) => {
+// Execute table creation queries in order (dependencies first)
+pool.query(createDepartmentTableQuery, (err) => {
     if (err) {
-        console.error('Error creating database:', err);
+        console.error('Error creating department table:', err);
     } else {
-        console.log('Database created successfully or already exists');
-        // Now, use the database and create the tables
-        pool.query(useDatabaseQuery, (err) => {
+        console.log('Department table created successfully or already exists');
+        pool.query(createStudentTableQuery, (err) => {
             if (err) {
-                console.error('Error using database:', err);
+                console.error('Error creating student_details table:', err);
             } else {
-                console.log('Using database: sample');
-                // Create the department table
-                pool.query(createDepartmentTableQuery, (err) => {
+                console.log('Student_details table created successfully or already exists');
+                pool.query(createCompletedStudentTableQuery, (err) => {
                     if (err) {
-                        console.error('Error creating department table:', err);
+                        console.error('Error creating completed_students table:', err);
                     } else {
-                        console.log('Department table created successfully or already exists');
-                        // Create the student_details table
-                        pool.query(createStudentTableQuery, (err) => {
+                        console.log('Completed_students table created successfully or already exists');
+                        pool.query(createAttendanceQuery, (err) => {
                             if (err) {
-                                console.error('Error creating student_details table:', err);
+                                console.error('Error creating attendance table:', err);
                             } else {
-                                console.log('Student_details table created successfully or already exists');
-                                // Create the completed_students table
-                                pool.query(createCompletedStudentTableQuery, (err) => {
-                                    if (err) {
-                                        console.error('Error creating completed_students table:', err);
-                                    } else {
-                                        console.log('Completed_students table created successfully or already exists');
-                                        // Create the attendance table
-                                        pool.query(createAttendanceQuery, (err) => {
-                                            if (err) {
-                                                console.error('Error creating attendance table:', err);
-                                            } else {
-                                                console.log('Attendance table created successfully or already exists');
-                                            }
-                                        });
-                                    }
-                                });
+                                console.log('Attendance table created successfully or already exists');
+                                pool.end();
                             }
                         });
                     }

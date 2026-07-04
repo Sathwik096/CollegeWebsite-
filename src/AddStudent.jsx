@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import API_URL from './config';
 
 function AddStudent() {
     const [file, setFile] = useState(null);
@@ -18,7 +19,7 @@ function AddStudent() {
         formData.append('file', file);
 
         try {
-            await axios.post('http://localhost:3000/upload', formData, {
+            await axios.post(`${API_URL}/upload`, formData, {
                 headers: { 'Content-Type': 'multipart/form-data' },
             });
             console.log('File uploaded successfully!');
@@ -41,7 +42,7 @@ function AddStudent() {
 
     const processSixthSemester = async () => {
         try {
-            await axios.post('http://localhost:3000/processSixthSemester');
+            await axios.post(`${API_URL}/processSixthSemester`);
             console.log('Sixth-semester students processed successfully!');
             setSuccessMessage('Sixth-semester students processed successfully!');
             alert("Student Proccessed Successfully")

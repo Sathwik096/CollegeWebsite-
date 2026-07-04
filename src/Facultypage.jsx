@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import API_URL from './config';
 
 export default function Facultypage() {
     const [facultyData, setFacultyData] = useState([]); //for viewing faculty data
@@ -7,7 +8,7 @@ export default function Facultypage() {
     const viewFaculty = async () => {
         try {
           // Call the endpoint to get faculty data
-          const response = await axios.get('http://localhost:5001/api/faculty/get-faculty');
+          const response = await axios.get(`${API_URL}/api/faculty/get-faculty`);
           setFacultyData(response.data);
         } catch (error) {
           console.error('Error getting faculty data:', error);

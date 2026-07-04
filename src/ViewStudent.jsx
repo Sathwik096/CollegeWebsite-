@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Modal, Button } from 'react-bootstrap';
 import EditStudent from './EditStudent';
 import * as XLSX from 'xlsx'; // Import xlsx library
+import API_URL from './config';
 
 const ViewStudent = () => {
   const [selectedSemester, setSelectedSemester] = useState('');
@@ -40,7 +41,7 @@ const ViewStudent = () => {
 
   const fetchStudentDetails = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/getstudents', {
+      const response = await axios.get(`${API_URL}/getstudents`, {
         params: {
           semester: selectedSemester,
           department: selectedDepartment,
@@ -62,7 +63,7 @@ const ViewStudent = () => {
 
   const handleDelete = async (studentId) => {
     try {
-      const response = await axios.delete(`http://localhost:3000/deletestudent/${studentId}`);
+      const response = await axios.delete(`${API_URL}/deletestudent/${studentId}`);
 
       if (response.status === 200) {
         setDeleteModal({ show: false, studentId: null });

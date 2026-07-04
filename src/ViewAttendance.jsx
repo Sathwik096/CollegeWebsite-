@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import API_URL from './config';
 
 function AttendanceComponent() {
   const [attendanceData, setAttendanceData] = useState([]);
@@ -16,7 +17,7 @@ function AttendanceComponent() {
       try {
         // Example: Call the API endpoint to mark attendance
         console.log('Sending request with parameters:', { studentId, startDate, endDate });
-        const response = await axios.get('http://localhost:3000/api/attendance', {
+        const response = await axios.get(`${API_URL}/api/attendance`, {
           params: {
             studentId,
             startDate: startDate || null, // Conditionally include startDate

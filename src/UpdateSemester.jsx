@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import API_URL from './config';
 
 const UpdateAllSemestersPage = () => {
   const [updateStatus, setUpdateStatus] = useState(null);
@@ -12,7 +13,7 @@ const UpdateAllSemestersPage = () => {
     if (confirmed) {
       try {
         // Send request to update all semesters except semester 6
-        const response = await axios.post('http://localhost:3000/api/updateAllSemesters');
+        const response = await axios.post(`${API_URL}/api/updateAllSemesters`);
 
         // Log the response for confirmation
         console.log(response.data);

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import API_URL from './config';
 
 const TakeAttendance = () => {
   const [departments, setDepartments] = useState([]);
@@ -28,7 +29,7 @@ const TakeAttendance = () => {
 
   const fetchDepartments = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/api/departments');
+      const response = await axios.get(`${API_URL}/api/departments`);
       setDepartments(response.data);
     } catch (error) {
       console.error('Error fetching departments:', error);
@@ -52,7 +53,7 @@ const TakeAttendance = () => {
     if (department && semester && subject && shift) {
       setFetchAttempted(true);
       // Call the API endpoint to mark attendance
-      axios.post('http://localhost:3000/api/student_details', { department, semester, subject,shift })
+      axios.post(`${API_URL}/api/student_details`, { department, semester, subject,shift })
         .then(response => {
           // Handle the response if needed
           console.log('Student details:', response.data);
@@ -80,7 +81,7 @@ const TakeAttendance = () => {
       alert('No students are enrolled in the specified department and semester.');
     } else {
       // Make a POST request to the server endpoint with the attendance status array
-      axios.post('http://localhost:3000/api/submit_attendance', {
+      axios.post(`${API_URL}/api/submit_attendance`, {
         attendanceStatusArray: attendanceStatusArray,
       })
         .then(response => {
@@ -104,7 +105,7 @@ const TakeAttendance = () => {
 
     // Make a POST request to the api/date_attendance endpoint with the entered date
 // Make a POST request to the api/date_attendance endpoint with the entered date
-    axios.post('http://localhost:3000/api/date_attendance', {
+    axios.post(`${API_URL}/api/date_attendance`, {
       attendanceDate: attendanceDate,
     })
       .then(response => {
@@ -144,7 +145,7 @@ const TakeAttendance = () => {
 
   const submitHoliday = () => {
     // Make a POST request to the server endpoint with holiday data
-    axios.post('http://localhost:3000/api/holiday_attendance', {
+    axios.post(`${API_URL}/api/holiday_attendance`, {
       holidayType: holidayType,
       holidayDate: holidayDate,
     })

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import API_URL from './config';
 
 const EditStudent = ({ show, studentId, studentDetails, onHide, onEdit }) => {
   const [editedDetails, setEditedDetails] = useState({
@@ -34,7 +35,7 @@ const EditStudent = ({ show, studentId, studentDetails, onHide, onEdit }) => {
   const handleEdit = async () => {
     try {
       console.log('Edit button clicked');
-      const response = await axios.put(`http://localhost:3000/editstudent/${studentId}`, editedDetails);
+      const response = await axios.put(`${API_URL}/editstudent/${studentId}`, editedDetails);
 
       if (response.status === 200) {
         onEdit(); // Notify parent component about the edit

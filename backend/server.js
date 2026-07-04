@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 5001;
 // Use the 'cors' middleware
 app.use(cors());
 
-mongoose.connect('mongodb://localhost:27017/FacultyManagement', {
+mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/FacultyManagement', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })

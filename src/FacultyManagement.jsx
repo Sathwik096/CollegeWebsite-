@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import * as xlsx from 'xlsx';
 import axios from 'axios';
+import API_URL from './config';
 
 const FacultyManagement = () => {
   const [facultyData, setFacultyData] = useState([]); //for viewing faculty data
@@ -19,7 +20,7 @@ const FacultyManagement = () => {
 
   const downloadTemplate = async () => {
     try {
-      const response = await axios.get('http://localhost:5001/api/faculty/download-template', {
+      const response = await axios.get(`${API_URL}/api/faculty/download-template`, {
         responseType: 'blob',
       });
 
@@ -43,7 +44,7 @@ const FacultyManagement = () => {
       const formData = new FormData();
       formData.append('facultyFile', fileInput.files[0]);
 
-      await axios.post('http://localhost:5001/api/faculty/add-faculty', formData, {
+      await axios.post(`${API_URL}/api/faculty/add-faculty`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -59,7 +60,7 @@ const FacultyManagement = () => {
   const viewFaculty = async () => {
     try {
       // Call the endpoint to get faculty data
-      const response = await axios.get('http://localhost:5001/api/faculty/get-faculty');
+      const response = await axios.get(`${API_URL}/api/faculty/get-faculty`);
       setFacultyData(response.data);
     } catch (error) {
       console.error('Error getting faculty data:', error);
@@ -73,7 +74,7 @@ const FacultyManagement = () => {
 
   const removeFaculty = async () => {
     try {
-      await axios.delete(`http://localhost:5001/api/faculty/remove-faculty/${removePIN}`);
+      await axios.delete(`${API_URL}/api/faculty/remove-faculty/${removePIN}`);
       alert(`Faculty with PIN ${removePIN} removed successfully!`);
       setRemovePIN(''); // Clear input after removal
       viewFaculty(); // Refresh faculty data after removal
@@ -98,7 +99,7 @@ const FacultyManagement = () => {
 
   const updateFaculty = async () => {
     try {
-      await axios.put(`http://localhost:5001/api/faculty/update-faculty/${updateData.PIN}`, updateData);
+      await axios.put(`${API_URL}/api/faculty/update-faculty/${updateData.PIN}`, updateData);
       alert('Faculty data updated successfully!');
       setUpdateData({
         PIN: '',
