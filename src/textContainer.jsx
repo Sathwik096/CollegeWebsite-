@@ -21,6 +21,7 @@ export default function TextContainer(props) {
     <div className='textContainer' style={textStyle} onMouseOver={() => marqueeRef.current.stop()} onMouseOut={() => marqueeRef.current.start()}>
       <img src={props.ContainerImage} alt="titleImage" style={imageContainer} />
       <h4 style={{color:'black',textAlign:'center',fontFamily:'times new roman',fontWeight:'bold',marginTop:'35px'}}>{props.title}</h4>
+      {/* eslint-disable-next-line jsx-a11y/no-distracting-elements */}
       <marquee direction="up" ref={marqueeRef} scrollamount="1.8"><b>{props.ContainerData}</b></marquee>
     </div>
   )

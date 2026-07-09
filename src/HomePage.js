@@ -304,14 +304,14 @@ export default function HomePage() {
         </h1>
         <hr style={{ color: "blue" }} />
         <div className="links-list">
-          <a href="#">AICTE</a> <br />
-          <a href="#">NBA</a>
+          <a href="/">AICTE</a> <br />
+          <a href="/">NBA</a>
           <br />
-          <a href="#">SBTET</a>
+          <a href="/">SBTET</a>
           <br />
-          <a href="#">MASB</a>
+          <a href="/">MASB</a>
           <br />
-          <a href="#">CURRICULUM</a>
+          <a href="/">CURRICULUM</a>
         </div>
       </div>
       <div className="last-container-homepage row">

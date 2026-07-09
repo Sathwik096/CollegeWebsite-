@@ -14,6 +14,7 @@ export default function Notification(props) {
     }
   return (
     <div style={notificationStyle} onMouseOver={() => marqueeRef.current.stop()} onMouseOut={() => marqueeRef.current.start()}>
+      {/* eslint-disable-next-line jsx-a11y/no-distracting-elements */}
       <marquee behavior="scroll" direction="left" ref={marqueeRef}><b>{props.notificationText}</b></marquee>
     </div>
   )

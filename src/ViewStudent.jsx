@@ -89,6 +89,7 @@ const ViewStudent = () => {
     if (selectedSemester && selectedDepartment) {
       fetchStudentDetails();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedSemester, selectedDepartment]);
 
   return (
