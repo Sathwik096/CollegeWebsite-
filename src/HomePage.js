@@ -20,7 +20,9 @@ export default function HomePage() {
   return (
     <div className="home-main-container">
       <>
-      <p><Notification notificationText="C-24 New Curriculum is released" /></p>
+      <div style={{ padding: '0px' }}>
+        <Notification notificationText="C-24 New Curriculum is released" />
+      </div>
       </>
       <div className="row">
         <div className="col-md-9">

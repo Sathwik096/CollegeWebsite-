@@ -11,8 +11,8 @@ export default function TextContainer(props) {
   const imageContainer={
     position: 'absolute',
     transform: 'translateX(-50%)',  /* Center horizontally */
-    width: "12vh" /* Adjust the size of the circular image */,
-    height: "12vh",
+    width: "80px", /* Fixed size instead of vh to prevent oversized icons on tall screens */
+    height: "80px",
     borderRadius: "50%" /* Creates a circular clipping mask */,
     top:'-40px',
   }
@@ -20,7 +20,7 @@ export default function TextContainer(props) {
   return (
     <div className='textContainer' style={textStyle} onMouseOver={() => marqueeRef.current.stop()} onMouseOut={() => marqueeRef.current.start()}>
       <img src={props.ContainerImage} alt="titleImage" style={imageContainer} />
-      <h4 style={{color:'black',textAlign:'center',fontFamily:'times new roman',fontWeight:'bold',marginTop:'8px'}}>{props.title}</h4>
+      <h4 style={{color:'black',textAlign:'center',fontFamily:'times new roman',fontWeight:'bold',marginTop:'35px'}}>{props.title}</h4>
       <marquee direction="up" ref={marqueeRef} scrollamount="1.8"><b>{props.ContainerData}</b></marquee>
     </div>
   )

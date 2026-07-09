@@ -576,3 +576,87 @@ body{
 .take-attendance-table tbody tr :hover {
   background-color: whitesmoke;
 }
+
+/* =========================================
+   Responsive Design (Media Queries)
+   ========================================= */
+
+/* Tablet Screens and below */
+@media screen and (max-width: 992px) {
+  .home-main-container,
+  .branch-main-container,
+  .placements-main-container,
+  .contactus-main-container,
+  .faculty-container,
+  .admin-main-container,
+  .view-attendance {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+/* Mobile Screens */
+@media screen and (max-width: 768px) {
+  .home-main-container,
+  .branch-main-container,
+  .placements-main-container,
+  .contactus-main-container,
+  .faculty-container,
+  .admin-main-container,
+  .view-attendance {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  /* Reduce paddings and margins for all main containers */
+  .left-container, .principal-container, .large-text-container,
+  .vision-mission, .motivation-video, .branch-left-container, 
+  .branch-right-container, .placement-menus, .diplomaPrograms-container,
+  .placementofficer-container, .major-recruiters-container, 
+  .recruiters-guide-container, .students-guide-container,
+  .contact-info-container, .contactus-table-container,
+  .faculties-table-container, .faculty-management-container,
+  .student-management-container, .inner-view-attendance,
+  .take-attendance, .student-attendance-container {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 15px;
+  }
+
+  /* Make images responsive */
+  .college-picture {
+    width: 100%;
+    height: auto;
+  }
+
+  .college-logo {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+  }
+
+  /* Make videos responsive */
+  .videoStyle {
+    width: 100%;
+    height: auto;
+  }
+
+  .view-attendance-table,
+  .take-attendance-table,
+  .contactus-table,
+  .faculties-table,
+  .faculty-table {
+    width: 100%;
+  }
+
+  /* Make table containers scrollable horizontally on small screens */
+  .faculties-table-container, 
+  .faculty-management-container,
+  .student-management-container, 
+  .contactus-table-container,
+  .take-attendance, 
+  .student-attendance-container,
+  .inner-view-attendance {
+    overflow-x: auto;
+  }
+}

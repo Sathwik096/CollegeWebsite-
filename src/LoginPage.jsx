@@ -9,11 +9,12 @@ export default function FacultyLogin() {
 
   const loginContainer = {
     margin: "100px auto",
-    padding: "10px",
+    padding: "20px",
     boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
     borderRadius: "5px",
     backgroundColor: "white",
-    width: "50%",
+    width: "90%",
+    maxWidth: "500px",
   };
 
   const handleSubmit = (e) => {
@@ -30,6 +31,7 @@ export default function FacultyLogin() {
 
   return (
     <div style={loginContainer}>
+      <h2 style={{ textAlign: "center", marginBottom: "20px", color: "hsl(240, 70%, 35%)", fontFamily: "times new roman" }}>Admin Login</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="exampleInputEmail1" className="form-label">
