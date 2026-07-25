@@ -12,6 +12,11 @@ const Faculty = require('./models/Faculty');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Simple health check route to verify server is running on the root URL
+app.get('/', (req, res) => {
+  res.send('Government College Hyderabad API is running!');
+});
+
 // ─── Middleware ───────────────────────────────────────────────────────────────
 app.use(cors());
 app.use(bodyParser.json());
